@@ -1,4 +1,5 @@
 const Router = require('koa-router')
+const {HttpException} = require("../../../core/http-exception");
 
 const router = new Router();
 
@@ -9,7 +10,7 @@ router.post('/v1/:id/classic/latest', (ctx, next) =>{
     const header = ctx.request.header
     const body = ctx.request.body
     ctx.body= {'key':'value'}
-    throw new Error('API Exception')
+    throw new HttpException('API Exception')
     next()
 })
 

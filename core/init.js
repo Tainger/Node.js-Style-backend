@@ -22,6 +22,11 @@ class InitManager{
             }
         }
     }
+
+    static loadHttpException(){
+        const errors = require('./http-exception')
+        global.errs = errors
+    }
 }
 
 
