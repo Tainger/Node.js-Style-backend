@@ -9,6 +9,7 @@ router.post('/v1/:id/classic/latest', (ctx, next) =>{
     const header = ctx.request.header
     const body = ctx.request.body
     ctx.body= {'key':'value'}
+    throw new Error('API Exception')
     next()
 })
 
