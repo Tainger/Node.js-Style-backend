@@ -1,6 +1,6 @@
 const Router = require('koa-router')
-const {HttpException} = require("../../../core/http-exception");
-
+const {HttpException} = require('../../../core/http-exception');
+const {PositiveIntegerValidator} = require('../../validators/validator');
 const router = new Router();
 
 router.post('/v1/:id/classic/latest', (ctx, next) =>{
@@ -10,7 +10,10 @@ router.post('/v1/:id/classic/latest', (ctx, next) =>{
     const header = ctx.request.header
     const body = ctx.request.body
     ctx.body= {'key':'value'}
-    throw new HttpException('API Exception')
+    const validator = new PositiveIntegerValidator()
+    validator.validate(ctx)
+
+    console.log("获取path id" + validator.get('path.id'))
     next()
 })
 
