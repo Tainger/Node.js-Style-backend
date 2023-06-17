@@ -7,6 +7,7 @@ class InitManager{
         InitManager.app = app;
         InitManager.initLoadRouters()
         InitManager.loadConfig()
+        InitManager.loadHttpException()
     }
 
     //初始化配置
