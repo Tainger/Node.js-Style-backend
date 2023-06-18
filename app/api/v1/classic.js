@@ -1,9 +1,14 @@
 const Router = require('koa-router')
 const {HttpException} = require('../../../core/http-exception');
 const {PositiveIntegerValidator} = require('../../validators/validator');
+const {
+    Auth
+} = require('../../../middlewares/auth')
+
+
 const router = new Router();
 
-router.post('/v1/:id/classic/latest', (ctx, next) =>{
+router.post('/v1/:id/classic/latest', new Auth().m, (ctx, next) =>{
     //path
     const path = ctx.request.params
     const query = ctx.request.query
